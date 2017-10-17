@@ -174,11 +174,14 @@ To create a new MEAN app, run <code>mean init</code>. Name for the application i
 ### Misc
 <h4>Status</h4>
 <p>Check the database connection for a particular environment (e.g. development (default), test, production) and make sure that the meanio command line version is up to date.</p>
+
 ```bash
   $ mean status
 ```
+
 <h4>Docs</h4>
 <p>A simple shortcut to open the mean documentation in your default browser.</p>
+
 ```bash
   $ mean docs
 ```
@@ -246,7 +249,7 @@ All javascript within public is automatically aggregated with the exception of f
 
 Files within public of the package can be accessed externally `/[package-name]/path-to-file-relative-to-public` for example to access tokens angular controller tokens/controllers/tokens.js
 
-###Registering a Package
+### Registering a Package
 
 In order for a Package to work it needs to be registered. By doing this you make package system aware that you are ready and that other packages are able to depend on you. The packages are registered from within `app.js` 
 
@@ -262,7 +265,7 @@ MEAN has 3 pre registered dependencies. `app` which makes the express app availa
 
 > All dependencies specified must be registered in order to use them
 
-###Dependency Injection
+### Dependency Injection
 
 > An injection is the passing of a dependency (a service) to a dependent
 > object (a client). The service is made part of the client's state.
@@ -291,7 +294,7 @@ Looking again at the registration example we can see that `MyPackage` depends on
 
 > Packages when in code are used in a capitalized form
 
-###Angular Modules and Dependencies
+### Angular Modules and Dependencies
 
 Every package registration automatically creates a corresponding angular module of the form `mean.[package-name]`
 
@@ -307,7 +310,7 @@ Below is an example of adding an angular dependency to our angular module.
 > See the assets section for an example how to add external libraries to
 > the client such as the `gDragDrop `javascript library
 
-###Assets and Aggregation
+### Assets and Aggregation
 
 All assets such as images, javascript libraries and css stylesheets should be within `public/assets` of the package file structure.
 
@@ -334,7 +337,7 @@ The aggregation supports the ability to control the location of where to inject 
 > in packages/system/server/views/includes/head.html 
 > <script type="text/javascript" src="/modules/aggregated.js?group=header"></script>
 
-###Settings Object
+### Settings Object
 The settings object is a persistance object that is stored in the packages collection and allows for saving persistant information per package such as configuration options or admin settings for the package.
 
   Receives two arguments the first being the settings object the second is a callback function
@@ -358,7 +361,7 @@ The settings object is a persistance object that is stored in the packages colle
 > and should not be used as a large data store
 
 
-###Express Routes
+### Express Routes
 All routing to server side controllers is handled by express routes. The package system uses the typical express approach. The package system has a route function that passes along the package object to the main routing file typically `server/routes/myPackage.js`
 
   By default the Package Object is passed to the routes along withe the other arguments
@@ -377,7 +380,7 @@ Example from the `server/routes/myPackage.js`
     
     };
 
-###Angular Routes
+### Angular Routes
 The angular routes are defined in `public/routes/myPackage.js`. Just like the latest version of mean, the packages  use the `$stateProvider`
 
       $stateProvider
@@ -389,7 +392,7 @@ The angular routes are defined in `public/routes/myPackage.js`. Just like the la
 > The angular views are publically accessible via templateUrl when
 > prefixed with the package name
 
-###Menu System
+### Menu System
 
 Packages are able to hook into an existing menu system and add links to various menus integrated within mean.
 
@@ -410,7 +413,7 @@ Below is an example how to add a link to the main menu from `app.js`
 > more info. You can find it `public/system/controllers/header.js` and
 > see how the menu service is implemented
 
-###Html View Rendering
+### Html View Rendering
 The packages come built in with a rendering function allowing packages to render static html. The default templating engine is *swig*. The views are found in `server/views` of the package and should end with the .html suffix
 
 Below is an example rendering some simple html
@@ -424,7 +427,7 @@ Below is an example rendering some simple html
   });
 ```
 
-###Overriding the default layouts
+### Overriding the default layouts
 One is able to override the default layout of the application through a custom package.
 
 Below is an example overriding the default layout of system and instead using the layourts found locally within the package
